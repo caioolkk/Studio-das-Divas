@@ -4,22 +4,605 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Studio das Divas | Beleza & Cuidados Femininos</title>
-  <link rel="stylesheet" href="style.css" />
+
   <!-- Fonte: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Font Awesome (ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Estilos -->
+  <style>
+    /* ================================
+       VARIÁVEIS DE COR (PALETA ROSA PASTEL)
+       ================================ */
+    :root {
+      --primary: #e98a9e;     /* Rosa pastel */
+      --primary-dark: #d86a7f; /* Rosa mais escuro */
+      --light: #ffffff;       /* Branco */
+      --text: #444444;        /* Cinza escuro */
+      --text-light: #777777;  /* Cinza claro */
+      --bg-light: #fdf2f5;    /* Fundo rosa claro */
+      --shadow: rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    /* ================================
+       RESET E GERAL
+       ================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background-color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Animação de entrada */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Atraso nas animações */
+    .fade-in:nth-child(1) { animation-delay: 0.2s; }
+    .fade-in:nth-child(2) { animation-delay: 0.4s; }
+    .fade-in:nth-child(3) { animation-delay: 0.6s; }
+
+    /* ================================
+       HEADER (Nome centralizado + Categorias abaixo)
+       ================================ */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--light);
+      box-shadow: 0 2px 10px var(--shadow);
+      z-index: 1000;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 5px 10px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary);
+      background-color: var(--bg-light);
+    }
+
+    /* ================================
+       HERO (SEÇÃO INICIAL)
+       ================================ */
+    .hero {
+      padding: 160px 20px 100px;
+      background-color: var(--bg-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(233, 138, 158, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ================================
+       SEÇÕES COMUNS
+       ================================ */
+    .section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 40px;
+    }
+
+    /* ================================
+       SERVIÇOS
+       ================================ */
+    .services {
+      background-color: var(--light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .service-card {
+      background-color: var(--bg-light);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px var(--shadow);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* ================================
+       SOBRE
+       ================================ */
+    .about {
+      background-color: #f9f9f9;
+      padding: 80px 0;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .about-content {
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+    }
+
+    .about-content h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .about-features {
+      margin: 20px 0;
+      color: var(--text);
+    }
+
+    .about-features li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .about-features li::before {
+      content: "✔️";
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(233, 138, 158, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    /* ================================
+       GALERIA
+       ================================ */
+    .gallery {
+      background-color: var(--light);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px var(--shadow);
+      transition: var(--transition);
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.03);
+    }
+
+    /* ================================
+       CONTATO
+       ================================ */
+    .contact {
+      background-color: var(--bg-light);
+      padding: 80px 0;
+    }
+
+    .contact-content {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-map {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+
+    /* ================================
+       RODAPÉ
+       ================================ */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 60px 0 30px;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .footer-logo h3 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .footer-social h4,
+    .footer-contact h4 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+      color: var(--primary);
+      transform: scale(1.2);
+    }
+
+    .footer-contact a {
+      color: #ccc;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      border-top: 1px solid #444;
+      padding-top: 20px;
+    }
+
+    /* ================================
+       MODAL DE AGENDAMENTO
+       ================================ */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: modal-appear 0.3s ease-out;
+    }
+
+    @keyframes modal-appear {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    .modal-content label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .modal-content input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .service-checkboxes {
+      margin: 15px 0;
+    }
+
+    .service-checkboxes label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    /* ================================
+       BOTÃO WHATSAPP FLUTUANTE (COR ROSA)
+       ================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--primary);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .whatsapp-float:hover {
+      background-color: var(--primary-dark);
+      transform: scale(1.1);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ================================
+       ANIMAÇÃO DE ROLAGEM (Entrada suave)
+       ================================ */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================================
+       RESPONSIVO (MOBILE)
+       ================================ */
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .nav-menu {
+        gap: 15px;
+      }
+
+      .nav-menu a {
+        font-size: 0.95rem;
+        padding: 4px 8px;
+      }
+
+      .about-container,
+      .contact-content {
+        flex-direction: column;
+      }
+
+      .about-content,
+      .contact-info {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ===== CABEÇALHO (IGUAL AO SEU FUNCIONAL) ===== -->
-  <header class="header">
-    <!-- Logo -->
+  <!-- ===== CABEÇALHO (Nome centralizado + Categorias abaixo) ===== -->
+  <header class="fade-in">
     <div class="logo">
       <h1>Studio das Divas</h1>
     </div>
-
-    <!-- CATEGORIAS (sempre visíveis) -->
     <nav class="nav-menu">
       <a href="#inicio">Início</a>
       <a href="#servicos">Serviços</a>
@@ -27,11 +610,6 @@
       <a href="#galeria">Galeria</a>
       <a href="#contato">Contato</a>
     </nav>
-
-    <!-- Botão Mobile -->
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
   </header>
 
   <!-- ===== MODAL DE AGENDAMENTO ===== -->
@@ -60,12 +638,12 @@
 
   <!-- ===== HERO ===== -->
   <section id="inicio" class="hero">
-    <div class="hero-content">
+    <div class="hero-content fade-in">
       <h2>Bem-vinda à Beleza que Transforma</h2>
       <p>Transforme seu visual com tratamentos exclusivos e um atendimento personalizado feito especialmente para você.</p>
       <a href="#servicos" class="btn-primary">Ver Serviços</a>
     </div>
-    <div class="hero-image">
+    <div class="hero-image fade-in">
       <img src="images/hero.jpg" alt="Cliente no salão">
     </div>
   </section>
@@ -73,35 +651,35 @@
   <!-- ===== SERVIÇOS ===== -->
   <section id="servicos" class="services">
     <div class="container">
-      <h2 class="section-title">Nossos Serviços</h2>
-      <p class="section-subtitle">Descubra os tratamentos que vão realçar sua beleza natural</p>
+      <h2 class="section-title fade-in">Nossos Serviços</h2>
+      <p class="section-subtitle fade-in">Descubra os tratamentos que vão realçar sua beleza natural</p>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <i class="fas fa-cut"></i>
           <h3>Corte & Modelagem</h3>
           <p>Estilos modernos e técnicas avançadas para realçar seu rosto e personalidade.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <i class="fas fa-palette"></i>
           <h3>Coloração</h3>
           <p>Matização, mechas, balayage ou tonalização — cabelos vibrantes e saudáveis.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <i class="fas fa-spa"></i>
           <h3>Tratamentos Capilares</h3>
           <p>Reconstrução, hidratação profunda e cauterização para fios fortes e brilhantes.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <i class="fas fa-heart"></i>
           <h3>Escova & Finalização</h3>
           <p>Escova modelada, chapinha ou ondas perfeitas para ocasiões especiais.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <i class="fas fa-venus"></i>
-          <h3>Maquiagem & Noivas</h3>
-          <p>Make duradouro e personalizado para eventos, especialmente casamentos.</p>
+          <h3>Massagem Relaxante</h3>
+          <p>Relaxamento profundo com técnicas suaves para aliviar tensões musculares e promover bem-estar..</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <i class="fas fa-hand-sparkles"></i>
           <h3>Manicure & Pedicure</h3>
           <p>Unhas impecáveis com esmaltação, gel ou semi-permanente.</p>
@@ -112,20 +690,20 @@
 
   <!-- ===== SOBRE ===== -->
   <section id="sobre" class="about">
-    <div class="container">
-      <div class="about-content">
+    <div class="container about-container">
+      <div class="about-content fade-in">
         <h2 class="section-title">Sobre o Studio das Divas</h2>
         <p>Desde 2015, o <strong>Studio das Divas</strong> é referência em beleza feminina em Jaboatão dos Guararapes. Nossa missão é proporcionar um ambiente acolhedor, onde cada cliente é tratada como uma verdadeira diva.</p>
         <p>Contamos com profissionais altamente qualificados, produtos premium e um atendimento personalizado que prioriza seus desejos e necessidades.</p>
         <ul class="about-features">
-          <li>✔️ Espaço climatizado e aconchegante</li>
-          <li>✔️ Produtos de alta performance</li>
-          <li>✔️ Atendimento com hora marcada</li>
-          <li>✔️ Foco em autoestima e bem-estar</li>
+          <li>Espaço climatizado e aconchegante</li>
+          <li>Produtos de alta performance</li>
+          <li>Atendimento com hora marcada</li>
+          <li>Foco em autoestima e bem-estar</li>
         </ul>
         <button id="open-booking" class="btn-secondary">Agende seu horário</button>
       </div>
-      <div class="about-image">
+      <div class="about-image fade-in">
         <img src="images/sobre.jpg" alt="Equipe do Studio das Divas">
       </div>
     </div>
@@ -134,19 +712,19 @@
   <!-- ===== GALERIA ===== -->
   <section id="galeria" class="gallery">
     <div class="container">
-      <h2 class="section-title">Antes & Depois</h2>
-      <p class="section-subtitle">Confira alguns resultados dos nossos tratamentos</p>
+      <h2 class="section-title fade-in">Antes & Depois</h2>
+      <p class="section-subtitle fade-in">Confira alguns resultados dos nossos tratamentos</p>
       <div class="gallery-grid">
-        <div class="gallery-item">
+        <div class="gallery-item" data-animate>
           <img src="images/antes1.jpg" alt="Antes e depois">
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" data-animate>
           <img src="images/corte.jpg" alt="Corte moderno">
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" data-animate>
           <img src="images/noiva.jpg" alt="Maquiagem de noiva">
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" data-animate>
           <img src="images/unhas.jpg" alt="Unhas decoradas">
         </div>
       </div>
@@ -156,17 +734,17 @@
   <!-- ===== CONTATO ===== -->
   <section id="contato" class="contact">
     <div class="container">
-      <h2 class="section-title">Entre em Contato</h2>
-      <p class="section-subtitle">Estamos prontos para transformar sua beleza</p>
+      <h2 class="section-title fade-in">Entre em Contato</h2>
+      <p class="section-subtitle fade-in">Estamos prontos para transformar sua beleza</p>
       <div class="contact-content">
-        <div class="contact-info">
+        <div class="contact-info fade-in">
           <h3>Informações</h3>
           <p><i class="fas fa-map-marker-alt"></i> R. Bernardo Viêira de Melo, 30 - Centro, Jaboatão dos Guararapes - PE, 54080-310</p>
           <p><i class="fas fa-phone"></i> <a href="https://wa.me/5581983214472">+55 (81) 98321-4472</a></p>
           <p><i class="fas fa-envelope"></i> contato@studiodasdivas.com.br</p>
           <p><i class="fas fa-clock"></i> Seg-Sex: 9h às 19h | Sáb: 8h às 17h</p>
         </div>
-        <div class="contact-map">
+        <div class="contact-map fade-in">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.645712640154!2d-34.9924189!3d-8.0707293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1d7b6f1d1b3a9%3A0x5f5e8a9b5e5e5e5e!2sR.%20Bernardo%20Vi%C3%AAira%20de%20Melo%2C%2030%20-%20Centro%2C%20Jaboat%C3%A3o%20dos%20Guararapes%20-%20PE%2C%2054080-310!5e0!3m2!1spt-BR!2sbr!4v1712345678901!5m2!1spt-BR!2sbr" 
             width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
@@ -177,7 +755,7 @@
   </section>
 
   <!-- ===== RODAPÉ ===== -->
-  <footer class="footer">
+  <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
@@ -187,7 +765,7 @@
         <div class="footer-social">
           <h4>Siga-nos</h4>
           <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://instagram.com/studio.das.divas" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-tiktok"></i></a>
           </div>
@@ -210,7 +788,83 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- ===== JS ===== -->
-  <script src="script.js"></script>
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ======== MODAL DE AGENDAMENTO ========
+    const modal = document.getElementById('booking-modal');
+    const openModalBtn = document.getElementById('open-booking');
+    const closeModalBtn = document.getElementById('close-modal');
+    const sendBtn = document.getElementById('send-whatsapp');
+    const clientNameInput = document.getElementById('client-name');
+    const serviceCheckboxes = document.querySelectorAll('.service-checkboxes input[type="checkbox"]');
+
+    openModalBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    sendBtn.addEventListener('click', () => {
+      const clientName = clientNameInput.value.trim();
+      const selectedServices = Array.from(serviceCheckboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+      if (!clientName) {
+        alert('Por favor, insira seu nome.');
+        return;
+      }
+
+      if (selectedServices.length === 0) {
+        alert('Por favor, selecione pelo menos um serviço.');
+        return;
+      }
+
+      const message = `Olá! Meu nome é ${clientName}.\n\nTenho interesse nos serviços:\n${selectedServices.map(s => `✅ ${s}`).join('\n')}\n\nPodem me informar um horário disponível?`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/5581983214472?text=${encodedMessage}`;
+
+      window.open(whatsappUrl, '_blank');
+      modal.style.display = 'none';
+      clientNameInput.value = '';
+      serviceCheckboxes.forEach(cb => cb.checked = false);
+    });
+
+    // ======== ROLAGEM SUAVE ========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ======== ANIMAÇÃO AO ROLAR ========
+    const animateOnScroll = () => {
+      document.querySelectorAll('[data-animate]').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+
 </body>
 </html>
