@@ -5,36 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Studio das Divas | Beleza & Cuidados Femininos</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Fonte Google: Poppins -->
+  <!-- Fonte: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome para ícones -->
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- ===== CABEÇALHO (HEADER) ===== -->
+  <!-- ===== CABEÇALHO (IGUAL AO SEU FUNCIONAL) ===== -->
   <header class="header">
-    <div class="container header-container">
-      <!-- Logo -->
-      <div class="logo">
-        <h1>Studio das Divas</h1>
-      </div>
+    <!-- Logo -->
+    <div class="logo">
+      <h1>Studio das Divas</h1>
+    </div>
 
-      <!-- Botão de menu mobile -->
-      <div class="menu-toggle" id="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
+    <!-- CATEGORIAS (sempre visíveis) -->
+    <nav class="nav-menu">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
 
-      <!-- Menu de Navegação -->
-      <nav class="nav-menu" id="nav-menu">
-        <ul class="nav-list">
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#galeria">Galeria</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
+    <!-- Botão Mobile -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
     </div>
   </header>
 
@@ -62,7 +58,7 @@
     </div>
   </div>
 
-  <!-- ===== SEÇÃO INICIAL (HERO) ===== -->
+  <!-- ===== HERO ===== -->
   <section id="inicio" class="hero">
     <div class="hero-content">
       <h2>Bem-vinda à Beleza que Transforma</h2>
@@ -70,16 +66,15 @@
       <a href="#servicos" class="btn-primary">Ver Serviços</a>
     </div>
     <div class="hero-image">
-      <img src="images/hero.jpg" alt="Cliente recebendo cuidados no salão">
+      <img src="images/hero.jpg" alt="Cliente no salão">
     </div>
   </section>
 
-  <!-- ===== SEÇÃO SERVIÇOS ===== -->
+  <!-- ===== SERVIÇOS ===== -->
   <section id="servicos" class="services">
     <div class="container">
       <h2 class="section-title">Nossos Serviços</h2>
       <p class="section-subtitle">Descubra os tratamentos que vão realçar sua beleza natural</p>
-
       <div class="services-grid">
         <div class="service-card">
           <i class="fas fa-cut"></i>
@@ -115,7 +110,7 @@
     </div>
   </section>
 
-  <!-- ===== SEÇÃO SOBRE ===== -->
+  <!-- ===== SOBRE ===== -->
   <section id="sobre" class="about">
     <div class="container">
       <div class="about-content">
@@ -136,21 +131,20 @@
     </div>
   </section>
 
-  <!-- ===== SEÇÃO GALERIA ===== -->
+  <!-- ===== GALERIA ===== -->
   <section id="galeria" class="gallery">
     <div class="container">
       <h2 class="section-title">Antes & Depois</h2>
       <p class="section-subtitle">Confira alguns resultados dos nossos tratamentos</p>
-
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="images/antes1.jpg" alt="Antes e depois de coloração">
+          <img src="images/antes1.jpg" alt="Antes e depois">
         </div>
         <div class="gallery-item">
           <img src="images/corte.jpg" alt="Corte moderno">
         </div>
         <div class="gallery-item">
-          <img src="images/noiva.jpg" alt="Maquiagem noiva">
+          <img src="images/noiva.jpg" alt="Maquiagem de noiva">
         </div>
         <div class="gallery-item">
           <img src="images/unhas.jpg" alt="Unhas decoradas">
@@ -159,12 +153,11 @@
     </div>
   </section>
 
-  <!-- ===== SEÇÃO CONTATO ===== -->
+  <!-- ===== CONTATO ===== -->
   <section id="contato" class="contact">
     <div class="container">
       <h2 class="section-title">Entre em Contato</h2>
       <p class="section-subtitle">Estamos prontos para transformar sua beleza</p>
-
       <div class="contact-content">
         <div class="contact-info">
           <h3>Informações</h3>
@@ -173,15 +166,10 @@
           <p><i class="fas fa-envelope"></i> contato@studiodasdivas.com.br</p>
           <p><i class="fas fa-clock"></i> Seg-Sex: 9h às 19h | Sáb: 8h às 17h</p>
         </div>
-
         <div class="contact-map">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.645712640154!2d-34.9924189!3d-8.0707293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1d7b6f1d1b3a9%3A0x5f5e8a9b5e5e5e5e!2sR.%20Bernardo%20Vi%C3%AAira%20de%20Melo%2C%2030%20-%20Centro%2C%20Jaboat%C3%A3o%20dos%20Guararapes%20-%20PE%2C%2054080-310!5e0!3m2!1spt-BR!2sbr!4v1712345678901!5m2!1spt-BR!2sbr" 
-            width="100%" 
-            height="300" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy">
+            width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
           </iframe>
         </div>
       </div>
@@ -217,12 +205,12 @@
     </div>
   </footer>
 
-  <!-- ===== BOTÃO FLUTUANTE DO WHATSAPP ===== -->
+  <!-- ===== BOTÃO WHATSAPP FLUTUANTE (COR ROSA) ===== -->
   <a href="https://wa.me/5581983214472" target="_blank" class="whatsapp-float" aria-label="Chat no WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- ===== SCRIPT JS ===== -->
+  <!-- ===== JS ===== -->
   <script src="script.js"></script>
 </body>
 </html>
