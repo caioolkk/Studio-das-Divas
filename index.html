@@ -9,20 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome (ícones) -->
-  <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css  " crossorigin="anonymous">
+  <link rel="stylesheet" href="      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css      " crossorigin="anonymous">
+
+  <!-- Logo -->
+  <link rel="icon" href="logo.png" type="image/png">
 
   <!-- Estilos -->
   <style>
     /* ================================
-       VARIÁVEIS DE COR (PALETA ROSA PASTEL)
+       VARIÁVEIS DE COR (PALETA TURQUESA)
        ================================ */
     :root {
-      --primary: #e98a9e;     /* Rosa pastel */
-      --primary-dark: #d86a7f; /* Rosa mais escuro */
-      --light: #ffffff;       /* Branco */
-      --text: #444444;        /* Cinza escuro */
+      --primary: #00B8D4;     /* Azul turquesa */
+      --primary-dark: #0096C7; /* Azul mais escuro */
+      --light: #FFFFFF;       /* Branco */
+      --text: #333333;        /* Cinza escuro */
       --text-light: #777777;  /* Cinza claro */
-      --bg-light: #fdf2f5;    /* Fundo rosa claro */
+      --bg-light: #F5F7FA;    /* Fundo cinza claro */
       --shadow: rgba(0, 0, 0, 0.1);
       --transition: all 0.3s ease;
     }
@@ -88,6 +91,15 @@
       color: var(--primary);
       font-weight: 700;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo h1 img {
+      width: 80px;
+      height: auto;
     }
 
     .nav-menu {
@@ -148,7 +160,7 @@
       text-decoration: none;
       font-weight: 600;
       transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(233, 138, 158, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 184, 212, 0.3);
     }
 
     .btn-primary:hover {
@@ -293,7 +305,7 @@
       font-weight: 600;
       margin-top: 15px;
       transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(233, 138, 158, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 184, 212, 0.2);
     }
 
     .btn-secondary:hover {
@@ -517,7 +529,7 @@
     }
 
     /* ================================
-       BOTÃO WHATSAPP FLUTUANTE (COR ROSA)
+       BOTÃO WHATSAPP FLUTUANTE (COR AZUL)
        ================================ */
     .whatsapp-float {
       position: fixed;
@@ -532,7 +544,7 @@
       align-items: center;
       justify-content: center;
       font-size: 2rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 15px rgba(0, 184, 212, 0.3);
       transition: all 0.3s ease;
       z-index: 1000;
       animation: float 3s ease-in-out infinite;
@@ -601,7 +613,7 @@
   <!-- ===== CABEÇALHO (Nome centralizado + Categorias abaixo) ===== -->
   <header class="fade-in">
     <div class="logo">
-      <h1>Salão Bia Alves</h1>
+      <h1><img src="logo.png" alt="Logo Bia Alves"> Salão Bia Alves</h1>
     </div>
     <nav class="nav-menu">
       <a href="#inicio">Início</a>
@@ -624,12 +636,16 @@
 
       <label>Serviços de interesse:</label>
       <div class="service-checkboxes">
-        <label><input type="checkbox" value="Corte & Modelagem"> Corte & Modelagem</label>
+        <label><input type="checkbox" value="Corte"> Corte</label>
         <label><input type="checkbox" value="Coloração"> Coloração</label>
         <label><input type="checkbox" value="Tratamentos Capilares"> Tratamentos Capilares</label>
         <label><input type="checkbox" value="Escova & Finalização"> Escova & Finalização</label>
-        <label><input type="checkbox" value="Maquiagem & Noivas"> Design de Sobrancelhas</label>
+        <label><input type="checkbox" value="Spa dos Pés"> Spa dos Pés</label>
         <label><input type="checkbox" value="Manicure & Pedicure"> Manicure & Pedicure</label>
+        <label><input type="checkbox" value="Manicure & Pedicure"> Progressiva</label>
+        <label><input type="checkbox" value="Manicure & Pedicure"> Botox</label>
+        <label><input type="checkbox" value="Manicure & Pedicure"> Mechas</label>
+        <label><input type="checkbox" value="Manicure & Pedicure"> Tratamentos com Vapor de Ozônio</label>
       </div>
 
       <button id="send-whatsapp" class="btn-primary">Ir para o WhatsApp</button>
@@ -656,33 +672,33 @@
       <div class="services-grid">
         <div class="service-card" data-animate>
           <i class="fas fa-cut"></i>
-          <h3>Corte & Modelagem</h3>
+          <h3>Corte</h3>
           <p>Estilos modernos e técnicas avançadas para realçar seu rosto e personalidade.</p>
         </div>
         <div class="service-card" data-animate>
           <i class="fas fa-palette"></i>
           <h3>Coloração</h3>
-          <p>Matização, mechas, balayage ou tonalização — cabelos vibrantes e saudáveis.</p>
+          <p>Matização, mechas ou tonalização — cabelos vibrantes e saudáveis.</p>
         </div>
         <div class="service-card" data-animate>
           <i class="fas fa-spa"></i>
           <h3>Tratamentos Capilares</h3>
-          <p>Reconstrução, hidratação profunda e cauterização para fios fortes e brilhantes.</p>
+          <p>Reconstrução, Tratamentos com vapor de ozônio, hidratação profunda e cauterização para fios fortes e brilhantes.</p>
         </div>
         <div class="service-card" data-animate>
           <i class="fas fa-heart"></i>
           <h3>Escova & Finalização</h3>
-          <p>Escova modelada, chapinha ou ondas perfeitas para ocasiões especiais.</p>
+          <p>Escova modelada, Botox, Progressiva, chapinha ou ondas perfeitas para ocasiões especiais.</p>
         </div>
         <div class="service-card" data-animate>
           <i class="fas fa-venus"></i>
-          <h3>Design de Sobrancelhas</h3>
-          <p>Realce o olhar com técnicas de design, alinhamento e acabamento perfeitos para o seu rosto.</p>
+          <h3>Spa dos pés</h3>
+          <p>Cuidado completo com esfoliação, hidratação e relaxamento para pés macios e renovados.</p>
         </div>
         <div class="service-card" data-animate>
           <i class="fas fa-hand-sparkles"></i>
           <h3>Manicure & Pedicure</h3>
-          <p>Unhas impecáveis com esmaltação, gel ou semi-permanente.</p>
+          <p>Unhas impecáveis com esmaltação ou gel.</p>
         </div>
       </div>
     </div>
@@ -741,7 +757,7 @@
         <div class="contact-info fade-in">
           <h3>Informações</h3>
           <p><i class="fas fa-map-marker-alt"></i> Rua Tomaz Lima, 54 - Cavaleiro, Jaboatão dos Guararapes - PE, 54260-010</p>
-          <p><i class="fas fa-phone"></i> <a href="https://wa.me/5581986163485  ">+55 (81) 98616-3485</a></p>
+          <p><i class="fas fa-phone"></i> <a href="https://wa.me/5581986163485      ">+55 (81) 98616-3485</a></p>
           <p><i class="fas fa-clock"></i> Terça à Sábado 09h às 18h</p>
         </div>
         <div class="contact-map fade-in">
@@ -770,14 +786,14 @@
         <div class="footer-social">
           <h4>Siga-nos</h4>
           <div class="social-icons">
-            <a href="  https://www.instagram.com/salaobiaalves?utm_source=ig_web_button_share_sheet&igsh=MWZlcW1hbmc4enhucQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="      https://www.instagram.com/salaobiaalves?utm_source=ig_web_button_share_sheet&igsh=MWZlcW1hbmc4enhucQ==" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-tiktok"></i></a>
           </div>
         </div>
         <div class="footer-contact">
           <h4>Contato Rápido</h4>
-          <a href="  https://wa.me/5581986163485  " class="footer-whatsapp">
+          <a href="      https://wa.me/5581986163485      " class="footer-whatsapp">
             <i class="fab fa-whatsapp"></i> +55 (81) 98616-3485
           </a>
         </div>
@@ -788,8 +804,8 @@
     </div>
   </footer>
 
-  <!-- ===== BOTÃO WHATSAPP FLUTUANTE (COR ROSA) ===== -->
-  <a href="https://wa.me/5581986163485  " target="_blank" class="whatsapp-float" aria-label="Chat no WhatsApp">
+  <!-- ===== BOTÃO WHATSAPP FLUTUANTE (COR AZUL) ===== -->
+  <a href="https://wa.me/5581986163485      " target="_blank" class="whatsapp-float" aria-label="Chat no WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
